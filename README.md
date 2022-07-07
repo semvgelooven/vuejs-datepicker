@@ -161,6 +161,7 @@ Inline always open version
 | minimum-view                 | String           | 'day'       | If set, lower-level views won't show            |
 | maximum-view                 | String           | 'year'      | If set, higher-level views won't show           |
 | format-typed-date            | Function         |             | Add formatting to typed date if typable is true |
+| maxlength                    | Number           |             | Max characters for datepicker field             |
 
 ## Events
 
