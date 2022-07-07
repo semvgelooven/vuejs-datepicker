@@ -32,7 +32,7 @@
       @click="showCalendar"
       @keyup="parseTypedDate"
       @blur="inputBlurred"
-      :maxlength="maxLength"
+      :maxlength="maxlength"
       autocomplete="off"
     />
     <!-- Clear Button -->
@@ -77,14 +77,14 @@ export default {
     bootstrapStyling: Boolean,
     useUtc: Boolean,
     formatTypedDate: Function,
-    maxLength: Number,
+    maxlength: Number
   },
   data() {
     const constructedDateUtils = makeDateUtils(this.useUtc);
     return {
       input: null,
       typedDate: false,
-      utils: constructedDateUtils,
+      utils: constructedDateUtils
     };
   },
   computed: {
@@ -112,12 +112,12 @@ export default {
         return { "form-control": true, ...this.inputClass };
       }
       return this.inputClass;
-    },
+    }
   },
   watch: {
     resetTypedDate() {
       this.typedDate = false;
-    },
+    }
   },
   methods: {
     showCalendar() {
@@ -132,7 +132,7 @@ export default {
       if (
         [
           27, // escape
-          13, // enter
+          13 // enter
         ].includes(event.keyCode)
       ) {
         this.input.blur();
@@ -178,11 +178,11 @@ export default {
           ? this.formatTypedDate(input)
           : input;
       return date;
-    },
+    }
   },
   mounted() {
     this.input = this.$el.querySelector("input");
-  },
+  }
 };
 // eslint-disable-next-line
 </script>

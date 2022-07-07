@@ -14,7 +14,7 @@
       :inputClass="inputClass"
       :typeable="typeable"
       :format-typed-date="formatTypedDate"
-      :maxlength="maxLength"
+      :maxlength="maxlength"
       :clearButton="clearButton"
       :clearButtonIcon="clearButtonIcon"
       :calendarButton="calendarButton"
@@ -110,25 +110,25 @@ export default {
     DateInput,
     PickerDay,
     PickerMonth,
-    PickerYear,
+    PickerYear
   },
   props: {
     value: {
-      validator: (val) => utils.validateDateInput(val),
+      validator: val => utils.validateDateInput(val)
     },
     name: String,
     refName: String,
     id: String,
     format: {
       type: [String, Function],
-      default: "dd MMM yyyy",
+      default: "dd MMM yyyy"
     },
     language: {
       type: Object,
-      default: () => en,
+      default: () => en
     },
     openDate: {
-      validator: (val) => utils.validateDateInput(val),
+      validator: val => utils.validateDateInput(val)
     },
     dayCellContent: Function,
     fullMonthName: Boolean,
@@ -151,16 +151,16 @@ export default {
     required: Boolean,
     typeable: Boolean,
     formatTypedDate: Function,
-    maxLength: Number,
+    maxlength: Number,
     useUtc: Boolean,
     minimumView: {
       type: String,
-      default: "day",
+      default: "day"
     },
     maximumView: {
       type: String,
-      default: "year",
-    },
+      default: "year"
+    }
   },
   data() {
     const startDate = this.openDate ? new Date(this.openDate) : new Date();
@@ -190,7 +190,7 @@ export default {
        */
       calendarHeight: 0,
       resetTypedDate: new Date(),
-      utils: constructedDateUtils,
+      utils: constructedDateUtils
     };
   },
   watch: {
@@ -202,7 +202,7 @@ export default {
     },
     initialView() {
       this.setInitialView();
-    },
+    }
   },
   computed: {
     computedInitialView() {
@@ -222,7 +222,7 @@ export default {
 
     calendarStyle() {
       return {
-        position: this.isInline ? "static" : undefined,
+        position: this.isInline ? "static" : undefined
       };
     },
     isOpen() {
@@ -233,7 +233,7 @@ export default {
     },
     isRtl() {
       return this.translation.rtl === true;
-    },
+    }
   },
   methods: {
     /**
@@ -267,7 +267,11 @@ export default {
       const initialView = this.computedInitialView;
       if (!this.allowedToShowView(initialView)) {
         throw new Error(
-          `initialView '${this.initialView}' cannot be rendered based on minimum '${this.minimumView}' and maximum '${this.maximumView}'`
+          `initialView '${
+            this.initialView
+          }' cannot be rendered based on minimum '${
+            this.minimumView
+          }' and maximum '${this.maximumView}'`
         );
       }
       switch (initialView) {
@@ -460,11 +464,11 @@ export default {
       if (this.isInline) {
         this.setInitialView();
       }
-    },
+    }
   },
   mounted() {
     this.init();
-  },
+  }
 };
 // eslint-disable-next-line
 </script>
